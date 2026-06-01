@@ -1,8 +1,32 @@
+import CategoryCard from "../components/CategoryCard";
+
 function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <main>
+
+      <section className="hero">
+
+        <h1>Gama Eventos</h1>
+
+        <div className="categories">
+
+          <CategoryCard
+            title="Eventos Sociais"
+            image="imagem1.jpg"
+            route="/social"
+          />
+
+          <CategoryCard
+            title="Eventos Corporativos"
+            image="imagem2.jpg"
+            route="/corporativo"
+          />
+
+        </div>
+
+      </section>
+
+    </main>
   );
 }
 
