@@ -1,0 +1,170 @@
+/* ============================================================
+   VARIÁVEIS GLOBAIS
+   Aqui ficam as "configurações" do site: cores, fontes, etc.
+   Para mudar uma cor em TODO o site, basta alterar aqui.
+   ============================================================ */
+:root {
+  --cor-fundo: #0d0d0d;          /* fundo geral (preto profundo) */
+  --cor-fundo-alt: #161616;      /* fundo alternativo para seções */
+  --cor-ouro: #92C466;           /* dourado — cor de destaque */
+  --cor-ouro-hover: #e0bf6a;     /* dourado mais claro ao passar o mouse */
+  --cor-branco: #ffffff;
+  --cor-texto: #cccccc;          /* texto corrido (cinza claro) */
+  --cor-texto-fraco: #888888;    /* texto secundário */
+  --cor-borda: #2a2a2a;          /* bordas sutis */
+
+  --fonte-titulo: 'Montserrat', sans-serif;   /* títulos em maiúsculas, bold */
+  --fonte-corpo: 'Open Sans', sans-serif;     /* texto corrido */
+
+  --max-largura: 1200px;         /* largura máxima do conteúdo */
+  --transicao: 0.3s ease;        /* animações suaves padrão */
+}
+
+/* ============================================================
+   RESET — Remove estilos padrão do navegador
+   ============================================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* largura inclui padding e border */
+}
+
+html {
+  scroll-behavior: smooth; /* rolagem suave ao clicar em âncoras */
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-branco);
+  font-family: var(--fonte-corpo);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden; /* evita scroll horizontal indesejado */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================================
+   UTILITÁRIOS — Classes reutilizáveis em todo o projeto
+   ============================================================ */
+
+/* Container: centraliza e limita a largura do conteúdo */
+.container {
+  max-width: var(--max-largura);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Seção padrão: espaçamento vertical generoso */
+.section {
+  padding: 96px 0;
+}
+
+/* Título de seção: texto centralizado, maiúsculo, dourado */
+.section-tag {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cor-ouro);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.8rem, 4vw, 2.8rem); /* tamanho responsivo */
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--cor-branco);
+  margin-bottom: 24px;
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: var(--cor-texto);
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* Linha decorativa dourada abaixo do título */
+.divider {
+  width: 60px;
+  height: 3px;
+  background-color: var(--cor-ouro);
+  margin: 20px 0;
+}
+
+/* Botão principal (dourado com texto escuro) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--cor-ouro);
+  color: #0d0d0d;
+  font-family: var(--fonte-titulo);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transicao), transform var(--transicao);
+}
+
+.btn-primary:hover {
+  background-color: var(--cor-ouro-hover);
+  transform: translateY(-2px);
+}
+
+/* Botão contorno (borda dourada, fundo transparente) */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
+  color: var(--cor-ouro);
+  font-family: var(--fonte-titulo);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 34px;
+  border: 2px solid var(--cor-ouro);
+  cursor: pointer;
+  transition: all var(--transicao);
+}
+
+.btn-outline:hover {
+  background-color: var(--cor-ouro);
+  color: #0d0d0d;
+}
+
+/* ============================================================
+   SCROLLBAR personalizada
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cor-fundo);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cor-ouro);
+  border-radius: 3px;
+}

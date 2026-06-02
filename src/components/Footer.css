@@ -1,0 +1,180 @@
+/* ============================================================
+   FOOTER CSS
+   ============================================================ */
+
+.footer {
+  background-color: #080808;
+  border-top: 1px solid var(--cor-borda);
+}
+
+/* Área superior: 3 colunas em grid */
+.footer__top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; /* coluna 1 é maior */
+  gap: 60px;
+  padding: 80px 0 60px;
+}
+
+/* Logo do footer */
+.footer__logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 3px;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.footer__logo span:first-child {
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--cor-branco);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.footer__logo span:last-child {
+  font-family: var(--fonte-titulo);
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--cor-ouro);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+.footer__desc {
+  font-size: 0.9rem;
+  color: var(--cor-texto-fraco);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+/* Ícones sociais do footer */
+.footer__social {
+  display: flex;
+  gap: 14px;
+}
+
+.footer__social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto-fraco);
+  transition: all var(--transicao);
+}
+
+.footer__social a:hover {
+  border-color: var(--cor-ouro);
+  color: var(--cor-ouro);
+  background-color: rgba(200, 169, 81, 0.1);
+}
+
+/* Títulos das colunas */
+.footer__heading {
+  font-family: var(--fonte-titulo);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cor-ouro);
+  margin-bottom: 24px;
+}
+
+/* Links de navegação */
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer__links li a {
+  font-size: 0.9rem;
+  color: var(--cor-texto-fraco);
+  transition: color var(--transicao);
+  position: relative;
+  padding-left: 14px;
+}
+
+/* Traço dourado antes de cada link */
+.footer__links li a::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--cor-ouro);
+  font-size: 0.7rem;
+}
+
+.footer__links li a:hover {
+  color: var(--cor-ouro);
+}
+
+/* Itens de contato com ícone + texto */
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer__contacts li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: var(--cor-texto-fraco);
+  line-height: 1.5;
+}
+
+.footer__contacts li svg {
+  flex-shrink: 0; /* impede que o ícone seja comprimido */
+  margin-top: 2px;
+  color: var(--cor-ouro);
+}
+
+/* Linha de copyright */
+.footer__bottom {
+  border-top: 1px solid var(--cor-borda);
+  padding: 20px 0;
+}
+
+.footer__bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer__bottom p {
+  font-size: 0.8rem;
+  color: var(--cor-texto-fraco);
+}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width: 900px) {
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Coluna do logo ocupa as 2 colunas */
+  .footer__col:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer__bottom-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

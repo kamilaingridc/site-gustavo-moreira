@@ -1,0 +1,213 @@
+/* ============================================================
+   HEADER CSS
+
+   position: fixed → fica sempre visível no topo ao rolar
+   z-index: 1000 → fica na frente de todos os outros elementos
+   transition → animação suave ao ficar "scrolled"
+   ============================================================ */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 0;
+  /* Começa transparente sobre o hero */
+  background-color: transparent;
+  transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Classe adicionada pelo React quando scrollY > 80px */
+.header.scrolled {
+  background-color: rgba(13, 13, 13, 0.97);
+  padding: 12px 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+/* Container interno: flexbox para distribuir logo, nav e social */
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ---- LOGO ---- */
+.header__logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 2px;
+}
+
+.header__logo-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--cor-branco);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.header__logo-sobrenome {
+  font-family: var(--fonte-titulo);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--cor-ouro);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+/* ---- NAVEGAÇÃO ---- */
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.header__nav-list li a {
+  font-family: var(--fonte-titulo);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cor-branco);
+  position: relative;
+  transition: color var(--transicao);
+}
+
+/* Linha dourada que aparece por baixo do link ao passar o mouse */
+.header__nav-list li a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--cor-ouro);
+  transition: width var(--transicao);
+}
+
+.header__nav-list li a:hover {
+  color: var(--cor-ouro);
+}
+
+.header__nav-list li a:hover::after {
+  width: 100%;
+}
+
+/* ---- ÍCONES SOCIAIS ---- */
+.header__social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header__social a {
+  color: var(--cor-texto-fraco);
+  transition: color var(--transicao);
+}
+
+.header__social a:hover {
+  color: var(--cor-ouro);
+}
+
+/* Botão WhatsApp com estilo especial */
+.header__whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--cor-ouro);
+  color: #0d0d0d !important;
+  font-family: var(--fonte-titulo);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  transition: background-color var(--transicao) !important;
+}
+
+.header__whatsapp:hover {
+  background-color: var(--cor-ouro-hover) !important;
+}
+
+/* ---- HAMBURGUER (mobile) ---- */
+.header__hamburger {
+  display: none; /* escondido no desktop */
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  width: 36px;
+  height: 36px;
+}
+
+.header__hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--cor-branco);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animação do X quando o menu abre */
+.header__hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.header__hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.header__hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================
+   RESPONSIVO — Mobile (tela < 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+
+  .header__hamburger {
+    display: flex; /* aparece só no mobile */
+  }
+
+  /* Menu mobile: aparece como dropdown vindo de cima */
+  .header__nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* começa fora da tela */
+    width: 75%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: #111111;
+    padding: 100px 40px 40px;
+    transition: right 0.4s ease;
+    border-left: 1px solid var(--cor-borda);
+  }
+
+  .header__nav.open {
+    right: 0; /* desliza para dentro */
+  }
+
+  .header__nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .header__nav-list li a {
+    font-size: 1rem;
+    letter-spacing: 3px;
+  }
+
+  /* Esconde ícones sociais no mobile (estão na nav) */
+  .header__social {
+    display: none;
+  }
+}

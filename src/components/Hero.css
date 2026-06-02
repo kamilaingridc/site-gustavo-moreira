@@ -1,0 +1,141 @@
+/* ============================================================
+   HERO CSS
+
+   height: 100vh → ocupa 100% da altura da janela
+   background-image → foto de fundo (show/evento)
+   background-size: cover → preenche tudo sem distorção
+   background-position: center → centraliza a foto
+   ============================================================ */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+
+  /* Foto de fundo: show/evento */
+  background-image: url('../src/assets/HeroOption.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* efeito parallax suave */
+}
+
+/* Overlay: camada escura semi-transparente sobre a foto */
+.hero__overlay {
+  position: absolute;
+  inset: 0; /* equivale a top/right/bottom/left: 0 */
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.80) 0%,
+    rgba(0, 0, 0, 0.50) 100%
+  );
+}
+
+/* Conteúdo fica acima do overlay (z-index > 0) */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 750px;
+}
+
+/* Tag pequena dourada acima do título */
+.hero__tag {
+  display: inline-block;
+  font-family: var(--fonte-titulo);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--cor-ouro);
+  border: 1px solid var(--cor-ouro);
+  padding: 6px 16px;
+  margin-bottom: 28px;
+}
+
+/* Título grande: clamp = tamanho fluido entre min e max */
+.hero__title {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: var(--cor-branco);
+  margin-bottom: 28px;
+  /* Animação de entrada: aparece de baixo para cima */
+  animation: fadeUp 0.9s ease both;
+}
+
+/* A palavra em destaque fica dourada */
+.hero__title span {
+  color: var(--cor-ouro);
+}
+
+.hero__desc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  margin-bottom: 44px;
+  animation: fadeUp 0.9s 0.2s ease both;
+}
+
+/* Container dos botões lado a lado */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  animation: fadeUp 0.9s 0.4s ease both;
+}
+
+/* Seta animada no rodapé do hero */
+.hero__scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  color: var(--cor-ouro);
+  /* Animação de vai-e-vem (bounce) */
+  animation: bounce 2s infinite;
+}
+
+/* ============================================================
+   ANIMAÇÕES com @keyframes
+   ============================================================ */
+
+/* Elemento sobe e aparece com fade */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Seta pulsa de cima para baixo */
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(10px); }
+}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width: 600px) {
+  .hero {
+    background-attachment: scroll; /* parallax desativado no mobile */
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-primary, .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
