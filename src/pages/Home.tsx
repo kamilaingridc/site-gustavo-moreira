@@ -91,16 +91,16 @@ const servicos = [
    DADO: fotos da galeria (eventos/shows)
    ────────────────────────────────────────────────────────── */
 const galeria = [
-  { url: '../src/assets/galeriaGeral/geral1.jpeg', alt: 'Evento 1' },
-  { url: '../src/assets/galeriaGeral/geral2.jpeg', alt: 'Evento 2' },
-  { url: '../src/assets/galeriaGeral/geral3.jpeg', alt: 'Evento 3' },
-  { url: '../src/assets/galeriaGeral/geral4.jpeg', alt: 'Evento 4' },
-  { url: '../src/assets/galeriaGeral/geral5.jpeg', alt: 'Evento 5' },
-  { url: '../src/assets/galeriaGeral/geral6.jpeg', alt: 'Evento 6' },
-  { url: '../src/assets/galeriaGeral/geral7.jpeg', alt: 'Evento 7' },
-  // { url: '../src/assets/galeriaGeral/geral8.jpeg', alt: 'Evento 8' },
-  { url: '../src/assets/galeriaGeral/geral9.jpeg', alt: 'Evento 9' },
-  { url: '../src/assets/galeriaGeral/geral10.jpeg', alt: 'Evento 10' },
+  { url: new URL('../assets/galeriaGeral/geral1.jpeg', import.meta.url).href, alt: 'Evento 1' },
+  { url: new URL('../assets/galeriaGeral/geral2.jpeg', import.meta.url).href, alt: 'Evento 2' },
+  { url: new URL('../assets/galeriaGeral/geral3.jpeg', import.meta.url).href, alt: 'Evento 3' },
+  { url: new URL('../assets/galeriaGeral/geral4.jpeg', import.meta.url).href, alt: 'Evento 4' },
+  { url: new URL('../assets/galeriaGeral/geral5.jpeg', import.meta.url).href, alt: 'Evento 5' },
+  { url: new URL('../assets/galeriaGeral/geral6.jpeg', import.meta.url).href, alt: 'Evento 6' },
+  { url: new URL('../assets/galeriaGeral/geral7.jpeg', import.meta.url).href, alt: 'Evento 7' },
+  // { url: new URL('../assets/galeriaGeral/geral8.jpeg', import.meta.url).href, alt: 'Evento 8' },
+  { url: new URL('../assets/galeriaGeral/geral9.jpeg', import.meta.url).href, alt: 'Evento 9' },
+  { url: new URL('../assets/galeriaGeral/geral10.jpeg', import.meta.url).href, alt: 'Evento 10' },
 ];
 
 /* ──────────────────────────────────────────────────────────
