@@ -9,16 +9,18 @@ import Footer from '../components/Footer';
 import './EventPage.css';
 
 const fotos = [
-  { url: '../src/assets/galeriaCorporativa/Corporativo5.jpeg', alt: 'galeria5' },
-  { url: '../src/assets/galeriaCorporativa/Corporativo1.jpeg', alt: 'galeria1' },
-  // { url: '../src/assets/galeriaCorporativa/Corporativo2.jpeg', alt: 'galeria2' },
-  // { url: '../src/assets/galeriaCorporativa/Corporativo3.jpeg', alt: 'galeria3' },
-  { url: '../src/assets/galeriaCorporativa/Corporativo4.jpeg', alt: 'galeria4' },
-  { url: '../src/assets/galeriaCorporativa/Corporativo6.jpeg', alt: 'galeria6' },
-  { url: '../src/assets/galeriaCorporativa/Corporativo7.jpeg', alt: 'galeria7' },
-  { url: '../src/assets/galeriaCorporativa/Corporativo8.jpeg', alt: 'galeria8' },
+  { url: new URL('../assets/galeriaCorporativa/Corporativo5.jpeg', import.meta.url).href, alt: 'galeria5' },
+  { url: new URL('../assets/galeriaCorporativa/Corporativo1.jpeg', import.meta.url).href, alt: 'galeria1' },
+  // { url: new URL('../assets/galeriaCorporativa/Corporativo2.jpeg', import.meta.url).href, alt: 'galeria2' },
+  // { url: new URL('../assets/galeriaCorporativa/Corporativo3.jpeg', import.meta.url).href, alt: 'galeria3' },
+  { url: new URL('../assets/galeriaCorporativa/Corporativo4.jpeg', import.meta.url).href, alt: 'galeria4' },
+  { url: new URL('../assets/galeriaCorporativa/Corporativo6.jpeg', import.meta.url).href, alt: 'galeria6' },
+  { url: new URL('../assets/galeriaCorporativa/Corporativo7.jpeg', import.meta.url).href, alt: 'galeria7' },
+  { url: new URL('../assets/galeriaCorporativa/Corporativo8.jpeg', import.meta.url).href, alt: 'galeria8' },
  
 ];
+
+const corporateHeroImage = new URL('../assets/Photo Gustavo.jpg', import.meta.url).href;
 
 const servicos = [
   'Convenções e Congressos',
@@ -39,7 +41,7 @@ function Corporate() {
       <Header />
 
       <section className="page-hero" style={{
-        backgroundImage: "url('../src/assets/Photo Gustavo.jpg')"
+        backgroundImage: `url('${corporateHeroImage}')`
       }}>
         <div className="page-hero__overlay" />
         <div className="container page-hero__content">

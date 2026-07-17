@@ -13,17 +13,19 @@ import Footer from '../components/Footer';
 import './EventPage.css';
 
 const fotos = [
-  { url: '../src/assets/galeriaSocial/social1.jpeg', alt: 'galeria1' },
-  { url: '../src/assets/galeriaSocial/social2.jpeg', alt: 'galeria2' },
-  { url: '../src/assets/galeriaSocial/social3.jpeg', alt: 'galeria3' },
-  { url: '../src/assets/galeriaSocial/social4.jpeg', alt: 'galeria4' },
-  { url: '../src/assets/galeriaSocial/social5.jpeg', alt: 'galeria5' },
-  { url: '../src/assets/galeriaSocial/social6.jpeg', alt: 'galeria6' },
-  // { url: '../src/assets/galeriaSocial/social7.jpeg', alt: 'galeria7' },
-  { url: '../src/assets/galeriaSocial/social8.jpeg', alt: 'galeria8' },
-  { url: '../src/assets/galeriaSocial/social9.jpeg', alt: 'galeria9' },
-  { url: '../src/assets/galeriaSocial/social10.jpeg', alt: 'galeria10' },
+  { url: new URL('../assets/galeriaSocial/social1.jpeg', import.meta.url).href, alt: 'galeria1' },
+  { url: new URL('../assets/galeriaSocial/social2.jpeg', import.meta.url).href, alt: 'galeria2' },
+  { url: new URL('../assets/galeriaSocial/social3.jpeg', import.meta.url).href, alt: 'galeria3' },
+  { url: new URL('../assets/galeriaSocial/social4.jpeg', import.meta.url).href, alt: 'galeria4' },
+  { url: new URL('../assets/galeriaSocial/social5.jpeg', import.meta.url).href, alt: 'galeria5' },
+  { url: new URL('../assets/galeriaSocial/social6.jpeg', import.meta.url).href, alt: 'galeria6' },
+  // { url: new URL('../assets/galeriaSocial/social7.jpeg', import.meta.url).href, alt: 'galeria7' },
+  { url: new URL('../assets/galeriaSocial/social8.jpeg', import.meta.url).href, alt: 'galeria8' },
+  { url: new URL('../assets/galeriaSocial/social9.jpeg', import.meta.url).href, alt: 'galeria9' },
+  { url: new URL('../assets/galeriaSocial/social10.jpeg', import.meta.url).href, alt: 'galeria10' },
 ];
+
+const socialHeroImage = new URL('../assets/socialG1.jpeg', import.meta.url).href;
 
 const servicos = [
   'Casamentos',
@@ -46,7 +48,7 @@ function Social() {
 
       {/* Hero interno da página */}
       <section className="page-hero" style={{
-        backgroundImage: "url('../src/assets/socialG1.jpeg')"
+        backgroundImage: `url('${socialHeroImage}')`
       }}>
         <div className="page-hero__overlay" />
         <div className="container page-hero__content">
