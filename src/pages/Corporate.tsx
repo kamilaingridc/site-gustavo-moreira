@@ -9,21 +9,26 @@ import Footer from '../components/Footer';
 import './EventPage.css';
 
 const fotos = [
-  { url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=75', alt: 'Congresso' },
-  { url: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=600&q=75', alt: 'Palestra' },
-  { url: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=75', alt: 'Evento corporativo' },
-  { url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=75', alt: 'Lançamento' },
-  { url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=75', alt: 'Festa corporativa' },
-  { url: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=75', alt: 'Show corporativo' },
+  { url: '../src/assets/galeriaCorporativa/Corporativo5.jpeg', alt: 'galeria5' },
+  { url: '../src/assets/galeriaCorporativa/Corporativo1.jpeg', alt: 'galeria1' },
+  // { url: '../src/assets/galeriaCorporativa/Corporativo2.jpeg', alt: 'galeria2' },
+  // { url: '../src/assets/galeriaCorporativa/Corporativo3.jpeg', alt: 'galeria3' },
+  { url: '../src/assets/galeriaCorporativa/Corporativo4.jpeg', alt: 'galeria4' },
+  { url: '../src/assets/galeriaCorporativa/Corporativo6.jpeg', alt: 'galeria6' },
+  { url: '../src/assets/galeriaCorporativa/Corporativo7.jpeg', alt: 'galeria7' },
+  { url: '../src/assets/galeriaCorporativa/Corporativo8.jpeg', alt: 'galeria8' },
+ 
 ];
 
 const servicos = [
-  'Congressos e Convenções',
-  'Lançamentos de Produtos',
-  'Seminários e Palestras',
-  'Team Building',
-  'Festas de Confraternização',
+  'Convenções e Congressos',
   'Feiras e Exposições',
+  'Lançamentos de Produtos',
+  'Treinamentos e Workshops',
+  'Palestras e Seminários',
+  'Eventos Empresariais Internos',
+  'Coquetéis e Confraternizações',
+  'Premiações e Eventos de Gala',
 ];
 
 function Corporate() {
@@ -34,7 +39,7 @@ function Corporate() {
       <Header />
 
       <section className="page-hero" style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&q=80')"
+        backgroundImage: "url('../src/assets/Photo Gustavo.jpg')"
       }}>
         <div className="page-hero__overlay" />
         <div className="container page-hero__content">
@@ -53,12 +58,14 @@ function Corporate() {
 
           <div className="event-text">
             <span className="section-tag">O que fazemos</span>
-            <h2 className="section-title">Transformamos eventos<br />em resultados</h2>
+            <h2 className="section-title">Especialistas em eventos<br />corporativos</h2>
             <div className="divider" />
             <p className="section-desc">
-              Pensamos o evento corporativo como uma ferramenta estratégica para sua empresa.
-              Infraestrutura completa, equipe técnica especializada e toda a logística
-              para que seu evento transmita profissionalismo e impacto.
+              Oferecemos estrutura completa para convenções, palestras, lançamentos
+              de produtos e eventos empresariais. Trabalhamos com equipamentos
+              profissionais e equipe qualificada, garantindo qualidade, pontualidade
+              e segurança. Pensamos o evento corporativo como uma ferramenta
+              estratégica para a sua empresa.
             </p>
           </div>
 
@@ -91,11 +98,7 @@ function Corporate() {
             {fotos.map((f, i) => (
               <div key={i} className="event-galeria__item">
                 <img src={f.url} alt={f.alt} loading="lazy" />
-                <div className="galeria__overlay">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" width="32" height="32">
-                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                  </svg>
-                </div>
+                <div className="galeria__overlay"></div>
               </div>
             ))}
           </div>

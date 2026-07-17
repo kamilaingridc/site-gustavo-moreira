@@ -53,7 +53,7 @@
 }
 
 .breadcrumb span {
-  color: var(--cor-borda);
+  color: #ffffff;
 }
 
 .page-hero__title {
@@ -142,7 +142,7 @@
 .event-galeria__item .galeria__overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(200, 169, 81, 0.6);
+  /* background-color: rgba(200, 169, 81, 0.6); */
   display: flex;
   align-items: center;
   justify-content: center;

@@ -27,10 +27,10 @@ function Hero() {
         </h1>
 
         {/* Descrição curta */}
-        <p className="hero__desc">
+        {/* <p className="hero__desc">
           Montagem de palco, iluminação, sonorização e muito mais.<br />
           Toda estrutura e responsabilidade com Gustavo Moreira.
-        </p>
+        </p> */}
 
         {/* Dois botões de ação */}
         <div className="hero__actions">

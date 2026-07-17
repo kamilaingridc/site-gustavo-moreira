@@ -171,6 +171,21 @@
   .footer__top {
     grid-template-columns: 1fr;
     gap: 40px;
+    text-align: center;
+  }
+
+  .footer__logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer__social {
+    justify-content: center;
+  }
+
+  .footer__contacts li {
+    justify-content: center;
+    text-align: left;
   }
 
   .footer__bottom-inner {

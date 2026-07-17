@@ -15,7 +15,8 @@
   align-items: center;
 
   /* Foto de fundo: show/evento */
-  background-image: url('../src/assets/HeroOption.jpeg');
+  /* background-image: url('../src/assets/Photo Gustavo.jpg'); */
+  background-image: url('../src/assets/PHOTO-2026-06-15-13-30-34.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* efeito parallax suave */
@@ -27,8 +28,8 @@
   inset: 0; /* equivale a top/right/bottom/left: 0 */
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.80) 0%,
-    rgba(0, 0, 0, 0.50) 100%
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.7) 100%
   );
 }
 

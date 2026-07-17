@@ -6,8 +6,8 @@
 :root {
   --cor-fundo: #0d0d0d;          /* fundo geral (preto profundo) */
   --cor-fundo-alt: #161616;      /* fundo alternativo para seções */
-  --cor-ouro: #92C466;           /* dourado — cor de destaque */
-  --cor-ouro-hover: #e0bf6a;     /* dourado mais claro ao passar o mouse */
+  --cor-ouro: #66CB34;           /* dourado — cor de destaque */
+  --cor-ouro-hover: #99CC32;     /* dourado mais claro ao passar o mouse */
   --cor-branco: #ffffff;
   --cor-texto: #cccccc;          /* texto corrido (cinza claro) */
   --cor-texto-fraco: #888888;    /* texto secundário */

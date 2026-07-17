@@ -162,11 +162,11 @@
   transform: scale(1.08); /* zoom suave ao hover */
 }
 
-/* Overlay escuro com ícone de lupa */
+/* Overlay - removido efeito de cor amarelada, mantém apenas o zoom */
 .galeria__overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(200, 169, 81, 0.6);
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;

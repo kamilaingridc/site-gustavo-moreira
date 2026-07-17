@@ -37,27 +37,15 @@
 /* ---- LOGO ---- */
 .header__logo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   line-height: 1;
-  gap: 2px;
 }
 
-.header__logo-nome {
-  font-family: var(--fonte-titulo);
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: var(--cor-branco);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-.header__logo-sobrenome {
-  font-family: var(--fonte-titulo);
-  font-size: 0.75rem;
-  font-weight: 400;
-  color: var(--cor-ouro);
-  letter-spacing: 6px;
-  text-transform: uppercase;
+.header__logo-img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* ---- NAVEGAÇÃO ---- */

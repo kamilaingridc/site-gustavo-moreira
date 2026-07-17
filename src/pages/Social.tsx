@@ -13,12 +13,16 @@ import Footer from '../components/Footer';
 import './EventPage.css';
 
 const fotos = [
-  { url: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=75', alt: 'Casamento' },
-  { url: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=75', alt: 'Festa' },
-  { url: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=75', alt: 'Formatura' },
-  { url: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&q=75', alt: 'Celebração' },
-  { url: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=75', alt: 'Show' },
-  { url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=75', alt: 'Evento social' },
+  { url: '../src/assets/galeriaSocial/social1.jpeg', alt: 'galeria1' },
+  { url: '../src/assets/galeriaSocial/social2.jpeg', alt: 'galeria2' },
+  { url: '../src/assets/galeriaSocial/social3.jpeg', alt: 'galeria3' },
+  { url: '../src/assets/galeriaSocial/social4.jpeg', alt: 'galeria4' },
+  { url: '../src/assets/galeriaSocial/social5.jpeg', alt: 'galeria5' },
+  { url: '../src/assets/galeriaSocial/social6.jpeg', alt: 'galeria6' },
+  // { url: '../src/assets/galeriaSocial/social7.jpeg', alt: 'galeria7' },
+  { url: '../src/assets/galeriaSocial/social8.jpeg', alt: 'galeria8' },
+  { url: '../src/assets/galeriaSocial/social9.jpeg', alt: 'galeria9' },
+  { url: '../src/assets/galeriaSocial/social10.jpeg', alt: 'galeria10' },
 ];
 
 const servicos = [
@@ -28,6 +32,8 @@ const servicos = [
   'Bailes de Debutante',
   'Festas Infantis',
   'Confraternizações',
+  'Shows com Bandas',
+  'Festas e Baladas',
 ];
 
 function Social() {
@@ -40,7 +46,7 @@ function Social() {
 
       {/* Hero interno da página */}
       <section className="page-hero" style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=80')"
+        backgroundImage: "url('../src/assets/socialG1.jpeg')"
       }}>
         <div className="page-hero__overlay" />
         <div className="container page-hero__content">
@@ -64,9 +70,10 @@ function Social() {
             <h2 className="section-title">Momentos que ficam<br />para sempre</h2>
             <div className="divider" />
             <p className="section-desc">
-              Cada evento social é único. Desde o planejamento até a execução,
-              cuidamos de cada detalhe para que você e seus convidados vivam
-              momentos inesquecíveis. Iluminação, som, palco e estrutura completa.
+              Somos especialistas em eventos sociais e shows com bandas. Nosso objetivo
+              é transformar cada evento em um verdadeiro espetáculo visual e sonoro.
+              Desde o planejamento até a execução, cuidamos de cada detalhe —
+              iluminação, som, painel de LED, palco e estrutura completa.
             </p>
           </div>
 
@@ -101,11 +108,7 @@ function Social() {
             {fotos.map((f, i) => (
               <div key={i} className="event-galeria__item">
                 <img src={f.url} alt={f.alt} loading="lazy" />
-                <div className="galeria__overlay">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" width="32" height="32">
-                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                  </svg>
-                </div>
+                <div className="galeria__overlay"></div>
               </div>
             ))}
           </div>

@@ -10,7 +10,7 @@
   3. Controlar o formulário de contato
 */
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
@@ -28,11 +28,30 @@ const servicos = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="40" height="40">
+        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/>
+      </svg>
+    ),
+    title: 'Painel de LED',
+    desc: 'Alta definição para apresentações, marcas e espetáculos. Ideal para impacto visual máximo.',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="40" height="40">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
       </svg>
     ),
-    title: 'Montagem de Palco',
-    desc: 'Estruturas profissionais para shows, festivais e eventos de qualquer porte.',
+    title: 'Palco e Estrutura',
+    desc: 'Montagem completa com grid profissional, segurança premium e acabamento de alto nível.',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="40" height="40">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07"/>
+      </svg>
+    ),
+    title: 'Sonorização Profissional',
+    desc: 'Clareza e pressão sonora impecável. Equipamentos de alta fidelidade para shows, palestras e festas.',
   },
   {
     icon: (
@@ -45,17 +64,7 @@ const servicos = [
       </svg>
     ),
     title: 'Iluminação Cênica',
-    desc: 'Sistemas de iluminação que criam atmosferas únicas e inesquecíveis.',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="40" height="40">
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-        <path d="M19.07 4.93a10 10 0 010 14.14"/><path d="M15.54 8.46a5 5 0 010 7.07"/>
-      </svg>
-    ),
-    title: 'Sonorização',
-    desc: 'Equipamentos de som de alta fidelidade para shows, palestras e festas.',
+    desc: 'Ambientação corporativa, efeitos especiais e valorização do espaço que criam atmosferas únicas.',
   },
   {
     icon: (
@@ -65,7 +74,7 @@ const servicos = [
       </svg>
     ),
     title: 'Eventos Corporativos',
-    desc: 'Congressos, lançamentos e reuniões com toda a infraestrutura necessária.',
+    desc: 'Convenções, lançamentos, congressos e eventos empresariais com infraestrutura completa.',
   },
   {
     icon: (
@@ -74,17 +83,7 @@ const servicos = [
       </svg>
     ),
     title: 'Eventos Sociais',
-    desc: 'Casamentos, formaturas e festas com o toque especial que o momento merece.',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="40" height="40">
-        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
-      </svg>
-    ),
-    title: 'Equipe Técnica',
-    desc: 'Profissionais experientes para garantir que tudo corra perfeitamente.',
+    desc: 'Casamentos, formaturas, aniversários e festas com o toque especial que o momento merece.',
   },
 ];
 
@@ -92,12 +91,16 @@ const servicos = [
    DADO: fotos da galeria (eventos/shows)
    ────────────────────────────────────────────────────────── */
 const galeria = [
-  { url: '../src/assets/Galeria1.jpeg', alt: 'Evento 1' },
-  { url: '../src/assets/Galeria2.jpeg', alt: 'Evento 2' },
-  { url: '../src/assets/Galeria3.jpeg', alt: 'Evento 3' },
-  { url: '../src/assets/Galeria4.jpeg', alt: 'Evento 4' },
-  { url: '../src/assets/Galeria5.jpeg', alt: 'Evento 5' },
-  { url: '../src/assets/Galeria6.jpeg', alt: 'Evento 6' },
+  { url: '../src/assets/galeriaGeral/geral1.jpeg', alt: 'Evento 1' },
+  { url: '../src/assets/galeriaGeral/geral2.jpeg', alt: 'Evento 2' },
+  { url: '../src/assets/galeriaGeral/geral3.jpeg', alt: 'Evento 3' },
+  { url: '../src/assets/galeriaGeral/geral4.jpeg', alt: 'Evento 4' },
+  { url: '../src/assets/galeriaGeral/geral5.jpeg', alt: 'Evento 5' },
+  { url: '../src/assets/galeriaGeral/geral6.jpeg', alt: 'Evento 6' },
+  { url: '../src/assets/galeriaGeral/geral7.jpeg', alt: 'Evento 7' },
+  // { url: '../src/assets/galeriaGeral/geral8.jpeg', alt: 'Evento 8' },
+  { url: '../src/assets/galeriaGeral/geral9.jpeg', alt: 'Evento 9' },
+  { url: '../src/assets/galeriaGeral/geral10.jpeg', alt: 'Evento 10' },
 ];
 
 /* ──────────────────────────────────────────────────────────
@@ -134,6 +137,8 @@ function useCounter(target: number, duration: number, active: boolean) {
    COMPONENTE PRINCIPAL — Home
    ══════════════════════════════════════════════════════════ */
 function Home() {
+  const location = useLocation();
+
   // Controla se a seção "sobre" está visível para ativar contadores
   const [statsVisible, setStatsVisible] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
@@ -152,21 +157,50 @@ function Home() {
     return () => observer.disconnect();
   }, []);
 
+  // Se chegar na Home com hash (#sobre, #contato...), rola até a seção alvo.
+  useEffect(() => {
+    if (!location.hash) return;
+
+    const id = location.hash.replace('#', '');
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const headerOffset = 96;
+    const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }, [location.hash]);
+
   // Valores dos contadores
   const eventos      = useCounter(1500, 2000, statsVisible);
-  const equipamentos = useCounter(200,  2000, statsVisible);
-  const servicos_n   = useCounter(10,  2000, statsVisible);
+  const equipamentos = useCounter(1000, 2000, statsVisible);
+  const servicos_n   = useCounter(10,   2000, statsVisible);
 
   // Atualiza o estado do formulário ao digitar
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Ao enviar o formulário (aqui apenas simula o envio)
+  // Ao enviar o formulário, abre o WhatsApp com mensagem pronta
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault(); // evita recarregar a página
-    setEnviado(true);
+
+    const linhas = [
+      'Olá! Vim pelo site e gostaria de um orçamento.',
+      '',
+      `Nome: ${form.nome}`,
+      `E-mail: ${form.email}`,
+      `Telefone: ${form.telefone || 'Não informado'}`,
+      '',
+      'Mensagem:',
+      form.mensagem,
+    ];
+
+    const mensagem = encodeURIComponent(linhas.join('\n'));
+    const whatsappUrl = `https://wa.me/5519992359630?text=${mensagem}`;
+
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     setForm({ nome: '', email: '', telefone: '', mensagem: '' });
+    setEnviado(true);
   };
 
   return (
@@ -196,19 +230,21 @@ function Home() {
             </div>
             <div className="stat-card">
               <span className="stat-numero">+{servicos_n}</span>
-              <span className="stat-label">Serviços</span>
+              <span className="stat-label">Anos de experiência</span>
             </div>
           </div>
 
           {/* Coluna de texto */}
           <div className="sobre__texto">
             <span className="section-tag">Sobre nós</span>
-            <h2 className="section-title">Buscando sempre<br />fazer o melhor!</h2>
+            <h2 className="section-title">Mais de 10 anos<br />transformando eventos</h2>
             <div className="divider" />
             <p className="section-desc">
-              Criamos experiências únicas que conectam pessoas e marcas. Transformamos
-              os desafios do seu evento em momentos inesquecíveis. Com Gustavo Moreira,
-              pensamos cada evento como uma ferramenta para atingir seus objetivos.
+              Com mais de 10 anos de experiência e mais de 1.500 eventos realizados,
+              somos especialistas em sonorização, iluminação e produção técnica para
+              eventos corporativos, sociais e shows com bandas. Nosso compromisso é
+              transformar cada evento em uma experiência marcante, com excelência
+              técnica, impacto visual e organização profissional.
             </p>
             <a href="#servicos" className="btn-primary" style={{ marginTop: '32px' }}>
               Conheça nossos serviços
@@ -266,12 +302,7 @@ function Home() {
             {galeria.map((foto, i) => (
               <div key={i} className="galeria__item">
                 <img src={foto.url} alt={foto.alt} loading="lazy" />
-                <div className="galeria__overlay">
-                  {/* Ícone de lupa */}
-                  <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" width="32" height="32">
-                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                  </svg>
-                </div>
+                <div className="galeria__overlay"></div>
               </div>
             ))}
           </div>
@@ -314,7 +345,7 @@ function Home() {
 
             {/* Botão WhatsApp grande */}
             <a
-              href="https://wa.me/5519992359630"
+              href={`https://wa.me/5519992359630?text=${encodeURIComponent('Olá! Vim pelo site e gostaria de um orçamento.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="contato__whatsapp"
