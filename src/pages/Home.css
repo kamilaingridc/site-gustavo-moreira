@@ -425,4 +425,15 @@
   .empresa-banner {
     background-attachment: scroll;
   }
+
+  /* Contadores: uma coluna para evitar sobreposição em telas estreitas */
+  .sobre__stats {
+    flex-direction: column;
+  }
+
+  .stat-card {
+    min-width: 0;
+    flex: none;
+    width: 100%;
+  }
 }
