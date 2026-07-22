@@ -144,7 +144,13 @@ function Home() {
   const statsRef = useRef<HTMLDivElement>(null);
 
   // Estado do formulário de contato
-  const [form, setForm] = useState({ nome: '', email: '', telefone: '', mensagem: '' });
+  const [form, setForm] = useState({
+    nome: '',
+    date: '',
+    local: '',
+    tipo: '',
+    mensagem: '',
+  });
   const [enviado, setEnviado] = useState(false);
 
   // IntersectionObserver: detecta quando a seção entra na tela
@@ -176,7 +182,7 @@ function Home() {
   const servicos_n   = useCounter(10,   2000, statsVisible);
 
   // Atualiza o estado do formulário ao digitar
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -188,8 +194,9 @@ function Home() {
       'Olá! Vim pelo site e gostaria de um orçamento.',
       '',
       `Nome: ${form.nome}`,
-      `E-mail: ${form.email}`,
-      `Telefone: ${form.telefone || 'Não informado'}`,
+      `Data do evento: ${form.date || 'Não informada'}`,
+      `Local do evento: ${form.local || 'Não informado'}`,
+      `Tipo de evento: ${form.tipo || 'Não informado'}`,
       '',
       'Mensagem:',
       form.mensagem,
@@ -199,7 +206,7 @@ function Home() {
     const whatsappUrl = `https://wa.me/5519992359630?text=${mensagem}`;
 
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    setForm({ nome: '', email: '', telefone: '', mensagem: '' });
+    setForm({ nome: '', date: '', local: '', tipo: '', mensagem: '' });
     setEnviado(true);
   };
 
@@ -387,31 +394,47 @@ function Home() {
                   />
                 </div>
 
-                {/* Campo E-mail */}
+                {/* Campo Data */}
                 <div className="form-group">
-                  <label htmlFor="email">E-mail</label>
+                  <label htmlFor="date">Data do Evento</label>
                   <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="seu@email.com"
-                    value={form.email}
+                    id="date"
+                    name="date"
+                    type="date"
+                    value={form.date}
                     onChange={handleChange}
                     required
                   />
                 </div>
 
-                {/* Campo Telefone */}
+                {/* Campo Local */}
                 <div className="form-group">
-                  <label htmlFor="telefone">Telefone</label>
+                  <label htmlFor="local">Local do Evento</label>
                   <input
-                    id="telefone"
-                    name="telefone"
-                    type="tel"
-                    placeholder="(00) 90000-0000"
-                    value={form.telefone}
+                    id="local"
+                    name="local"
+                    type="text"
+                    placeholder="Ex.: Chácara '...'"
+                    value={form.local}
                     onChange={handleChange}
                   />
+                </div>
+
+                {/* Campo Tipo de Evento */}
+                <div className="form-group">
+                  <label htmlFor="tipo">Tipo de Evento</label>
+                  <select
+                    id="tipo"
+                    name="tipo"
+                    value={form.tipo}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="" disabled>Selecione o tipo</option>
+                    <option value="Geral">Geral</option>
+                    <option value="Social">Social</option>
+                    <option value="Corporativo">Corporativo</option>
+                  </select>
                 </div>
 
                 {/* Campo Mensagem */}

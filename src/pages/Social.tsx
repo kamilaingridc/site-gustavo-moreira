@@ -23,6 +23,7 @@ const fotos = [
   { url: new URL('../assets/galeriaSocial/social8.jpeg', import.meta.url).href, alt: 'galeria8' },
   { url: new URL('../assets/galeriaSocial/social9.jpeg', import.meta.url).href, alt: 'galeria9' },
   { url: new URL('../assets/galeriaSocial/social10.jpeg', import.meta.url).href, alt: 'galeria10' },
+  { url: new URL('../assets/galeriaSocial/social b.jpeg', import.meta.url).href, alt: 'galeria11' },
 ];
 
 const socialHeroImage = new URL('../assets/socialG1.jpeg', import.meta.url).href;
