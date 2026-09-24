@@ -68,7 +68,7 @@ function Header() {
           </a>
           {/* Botão WhatsApp com texto */}
           <a
-            href="https://wa.me/5519992359630"
+            href={`https://wa.me/5519992359630?text=${encodeURIComponent('Olá! Vim pelo site e gostaria de um orçamento.')}`} 
             target="_blank"
             rel="noopener noreferrer"
             className="header__whatsapp"

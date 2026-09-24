@@ -489,7 +489,7 @@ function Home() {
 
       {/* ── Botão flutuante do WhatsApp (canto inferior direito) ── */}
       <a
-        href="https://wa.me/5519992359630"
+        href={`https://wa.me/5519992359630?text=${encodeURIComponent('Olá! Vim pelo site e gostaria de um orçamento.')}`}
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-float"
